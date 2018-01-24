@@ -47,12 +47,10 @@ module Chikka
       message_type = "SEND"
       if params[:request_id]
         message_type = "REPLY"
-        params[:request_cost] = params.fetch(:request_cost) { "P5.00" }
       end
 
       post_params = DEFAULT_PARAMS.merge({
-        message_type: message_type,
-        request_cost: "P2.50"
+        message_type: message_type
       }.merge(params))
 
       body = URI.encode_www_form(post_params)
